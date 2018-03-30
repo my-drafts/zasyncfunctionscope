@@ -1,0 +1,23 @@
+{
+  "name": "zasyncfunctionscope",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Sergej Kukharev",
+  "license": "ISC",
+  "dependencies": {
+    "zscope": "^1.0.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergej-kucharev/zasyncfunctionscope.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sergej-kucharev/zasyncfunctionscope/issues"
+  },
+  "homepage": "https://github.com/sergej-kucharev/zasyncfunctionscope#readme",
+  "description": ""
+}
