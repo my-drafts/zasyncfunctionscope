@@ -3,7 +3,7 @@
 'use strict';
 
 const Scope = require('zscope').Scope;
-const AsyncFunction = (async function () {}).constructor;
+const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 
 class AsyncFunctionsScope extends Scope {
 

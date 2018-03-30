@@ -1,9 +1,6 @@
 const Assert = require('assert');
 const AsyncFunctionsScope = require('./').AsyncFunctionsScope;
 
-//let a = AsyncFunctionsScope.init({'a': 1 });
-//let a = AsyncFunctionsScope.init({'a': async function () { } });
-
 class Test {
 	constructor () {
 	};
