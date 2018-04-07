@@ -1,9 +1,11 @@
 const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-chai.use(chaiAsPromised);
 const assert = chai.assert;
 const expect = chai.expect;
 const should = chai.should();
+const chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+const mlog = require('mocha-logger');
+const util = require('util');
 const Scope = require('zscope').Scope;
 const AsyncFunction = require('../AsyncFunction').AsyncFunction;
 const AsyncFunctionScope = require('../AsyncFunctionScope').AsyncFunctionScope;
@@ -45,8 +47,8 @@ describe('AsyncFunctionScope', () => {
 		{
 			let k1 = { 'key-1': async function () {} };
 			let k2 = { 'key-2': async function () {} };
-			let k3 = [ 'key-3', async function () {} ];
-			let k4 = [ 'key-4', 4 ];
+			let k3 = { 'key-3': async function () {} };
+			let k4 = { 'key-4': 4 };
 			let s = AsyncFunctionScope.init(k1, k2);
 
 			it('AsyncFunctionScope._set is a function', () => {
@@ -54,13 +56,13 @@ describe('AsyncFunctionScope', () => {
 			});
 
 			it('AsyncFunctionScope._set adds pair (key-3, async) to AsyncFunctionScope', () => {
-				expect(s._set(k3[0], k3[1])).to.false;
-				expect(s._get(k3[0])).to.equal(k3[1]);
+				expect(s._set(k3)).to.false;
+				expect(s._get('key-3')).to.equal(k3['key-3']);
 			});
 
 			it('AsyncFunctionScope._set overwrite pair (key-3, async) of AsyncFunctionScope', () => {
-				expect(s._set(k3[0], k3[1])).to.true;
-				expect(s._get(k3[0])).to.equal(k3[1]);
+				expect(s._set(k3)).to.true;
+				expect(s._get('key-3')).to.equal(k3['key-3']);
 			});
 
 			it('AsyncFunctionScope._set adds pair (key-4, non-async) to AsyncFunctionScope', () => {
@@ -69,7 +71,7 @@ describe('AsyncFunctionScope', () => {
 			});
 
 			it('AsyncFunctionScope._set have added key-3 to AsyncFunctionScope', () => {
-				expect(s.keys).to.have.members(['key-1', 'key-2', k3[0]]);
+				expect(s.keys).to.have.members(['key-1', 'key-2', 'key-3']);
 			});
 		}
 
