@@ -9,7 +9,7 @@ class AsyncFunctionScope extends Scope {
 
 	static init (...args) {
 		return Object.freeze(new AsyncFunctionScope(...args));
-	};
+	}
 
 	_set (key, value) {
 		if (value instanceof AsyncFunction) return super._set(key, value);
