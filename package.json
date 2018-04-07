@@ -1,6 +1,6 @@
 {
   "name": "zasyncfunctionscope",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -8,7 +8,7 @@
   "author": "Sergej Kukharev",
   "license": "ISC",
   "dependencies": {
-    "zscope": "^1.0.7"
+    "zscope": "^1.0.8"
   },
   "devDependencies": {
     "chai": "^4.1.2",

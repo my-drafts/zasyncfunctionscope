@@ -5,8 +5,8 @@ const assert = chai.assert;
 const expect = chai.expect;
 const should = chai.should();
 const Scope = require('zscope').Scope;
-const AsyncFunction = require('..').AsyncFunction;
-const AsyncFunctionScope = require('..').AsyncFunctionScope;
+const AsyncFunction = require('../AsyncFunction').AsyncFunction;
+const AsyncFunctionScope = require('../AsyncFunctionScope').AsyncFunctionScope;
 
 describe('AsyncFunction', () => {
 	it('is async function class', () => {
